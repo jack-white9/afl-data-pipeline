@@ -4,9 +4,9 @@ from Ingestion import Ingestion
 
 if __name__ == "__main__":
     load_dotenv()
-    AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-    AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-    
+    AWS_ACCESS_KEY_ID = os.getenv("ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = os.getenv("SECRET_ACCESS_KEY")
+
     bucket_name = "afl-data-raw"
     file_name = "afl_data.csv"
 
