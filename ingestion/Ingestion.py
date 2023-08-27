@@ -13,7 +13,7 @@ class Ingestion:
         )
 
     def get_data(self, format):
-        res = requests.get(f"https://api.squiggle.com.au/?q=tips;format={format}")
+        res = requests.get(f"https://api.squiggle.com.au/?q=games;format={format}")
         print(res.status_code)
         return res.text
 
@@ -21,7 +21,7 @@ class Ingestion:
         self.client.put_object(Body=file, Bucket=bucket, Key=key)
 
 
-if __name__ == "__main__":
+def main():
     load_dotenv()
     AWS_ACCESS_KEY_ID = os.getenv("ACCESS_KEY_ID")
     AWS_SECRET_ACCESS_KEY = os.getenv("SECRET_ACCESS_KEY")
@@ -32,3 +32,11 @@ if __name__ == "__main__":
     ingestion = Ingestion(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
     data = ingestion.get_data("csv")
     ingestion.upload_to_s3(bucket_name, file_name, data)
+
+
+def lambda_handler(event, context):
+    main()
+
+
+if __name__ == "__main__":
+    main()
