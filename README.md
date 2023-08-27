@@ -2,6 +2,8 @@
 
 ## Ingestion
 
+![ingestion architecture](https://raw.githubusercontent.com/jack-white9/afl-tipping-pipeline/main/docs/architecture.png)
+
 The raw data is pulled from the [Squiggle API](https://api.squiggle.com.au/) and ingested into S3 in CSV format by `ingestion/Ingestion.py`.
 
 ## Getting Started
